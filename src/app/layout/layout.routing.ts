@@ -1,17 +1,17 @@
-import { UserModule } from './../user/user.module';
+
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MainLayoutComponent } from './layouts/main-layout.component';
-import { CarteModule } from '../carte/carte.module';
+
 
 const routes: Routes = [{
     path: '',
     component: MainLayoutComponent,
     children: [
-        { path: '', loadChildren: () => CarteModule },
+        { path: '', loadChildren: '../carte/carte.module#CarteModule' },
         {
             path: 'users',
-            loadChildren: () => UserModule
+            loadChildren: '../user/user.module#UserModule'
         }
     ]
 },
