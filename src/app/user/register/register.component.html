@@ -1,0 +1,120 @@
+<section class="section-gap" id="blog">
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-4 border-3  pb-3 pt-3 border-light">
+        <div class="title mb-4">
+          <h3 class="mb-10">Registrar Conta</h3>
+        </div>
+        <form (ngSubmit)="register()" [formGroup]="registerFormGroup">
+          <div class="row">
+            <div class="form-group col-md-12">
+              <label for="">Nome Completo</label>
+              <input
+                type="text"
+                placeholder="Digite seu nome"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && in.fullName.errors }"
+                formControlName="fullName"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-12">
+              <label for="">Email</label>
+              <input
+                type="email"
+                placeholder="Digite seu email"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && in.email.errors }"
+                formControlName="email"
+              />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-md-12">
+              <label for="">Login</label>
+              <input
+                type="text"
+                placeholder="Digite seu usuario"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && in.username.errors }"
+                formControlName="username"
+              />
+            </div>
+            <div class="form-group col-md-7">
+              <label for="">Nascimento</label>
+              <input
+                type="date"
+                placeholder="Digite seu usuario"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && in.birthDay.errors }"
+                formControlName="birthDay"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-12">
+              <label for="">Senha
+                    <span
+                    class="text-danger"
+                    *ngIf="
+                      in.password.errors &&
+                      in.password.errors.minLength
+                    "
+                  >
+                    A senha precisa ter o minimo de 6 caracters
+                  </span>
+
+              </label>
+              <input
+                type="password"
+                placeholder="Digite sua senha"
+                class="form-control"
+                formControlName="password"
+                [ngClass]="{ 'is-invalid': submitted && in.password.errors }"
+              />
+            </div>
+            <div class="form-group col-md-12">
+              <label for=""
+                >Confirmar Senha
+                <span
+                  class="text-danger"
+                  *ngIf="
+                    in.confirmPassword.errors &&
+                    in.confirmPassword.errors.ConfirmPassword
+                  "
+                >
+                  A confirmação de senha precisa ser igual a senha
+                </span>
+              </label>
+
+              <input
+                type="password"
+                placeholder="Digite sua senha"
+                class="form-control"
+                formControlName="confirmPassword"
+                [ngClass]="{
+                  'is-invalid': submitted && in.confirmPassword.errors
+                }"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <button [disabled]="inLoading" class="btn btn-primary">
+              Criar Conta
+            </button>
+            &nbsp;
+            <span class="ml-5" *ngIf="inLoading"
+              >Aguarde estamos validando
+
+              <img src="/assets/img/elipses.svg" />
+            </span>
+          </div>
+          <div class="form-group"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

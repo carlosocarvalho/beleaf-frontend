@@ -1,0 +1,55 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+@import "scss/theme/variables";
+$theme-colors: (
+  "primary": #333,
+);
+
+$enable-rounded:              false !default;
+$border-width:                2px !default;
+
+.border-3{
+    border: 3px solid #dee2e6
+}
+.link-menu-item{
+  padding: 0 8px 0px 8px;
+    text-decoration: none;
+    display: inline-block;
+    color: #222;
+    font-weight: 400;
+    font-size: 12px;
+    text-transform: uppercase;
+    outline: none;
+    cursor: pointer;
+    span{
+      display: inline-block;
+    }
+}
+
+@import  "../node_modules//bootstrap/scss/bootstrap.scss";
+
+
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+
+//
+// Grid mixins
+//
+
+@import "../node_modules/bootstrap/scss/mixins/breakpoints";
+
+
+// including variables and mixins
+
+@import "scss/theme/mixins";
+@import "scss/theme/flexbox";
+@import "scss/theme/reset";
+
+
+// Custom Scss 
+@import "scss/theme/elements";
+@import "scss/theme/header";
+@import "scss/theme/home";
+@import "scss/theme/footer";

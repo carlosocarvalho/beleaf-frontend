@@ -1,0 +1,49 @@
+<section class="blog-area section-gap" id="blog">
+  <div class="container">
+    <div class="row d-flex">
+      <div class="menu-content col-lg-8">
+        <div class="title">
+          <h1 class="mb-10">Detalhes</h1>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="single-dish col-lg-5">
+        <div class="thumb border-light border"
+        [ngStyle]="{
+          width: '100%',
+          height: '100%',
+          backgroundImage: 'url( ' + image +')',
+          backgroundSize: 'cover',
+          backgroundPosition: center,
+          backgroundRepeat: 'no-repeat'
+      }"
+        >
+          
+        </div>
+       
+      </div>
+      <div class="col-md-7 border-3  pb-3 pt-3 border-light">
+        <h2 class="mb-2">{{ product?.title }}</h2>
+        <p class="mb-3">
+          {{ product?.description }}
+        </p>
+        <h4 class="mb-2">Ingredientes</h4>
+        <p class="mb-3">
+          {{ product?.stuff }}
+        </p>
+        <h4 class="mb-2">Estoque</h4>
+        <p class="mb-3">
+          {{ product?.stock }}
+        </p>
+        <div>
+            <h3 class="m-0"><p class="date">{{ product?.price | currency: "BRL" }}</p></h3>
+            <br/>
+            <a href="javascript:void(0)" (click)="buy()"  class="btn btn-primary">
+                Comprar
+            </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

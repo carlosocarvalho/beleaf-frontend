@@ -1,0 +1,8 @@
+<div class="custom-file" >
+ 
+  <input id="validatedCustomFile" 
+  [ngClass]="{ 'is-invalid': hasError }"
+  class="custom-file-input file-input" type="file" />
+  <label class="custom-file-label" for="validatedCustomFile">Selecione</label>
+  <label for="">{{file?.name}}</label><br/>
+</div>

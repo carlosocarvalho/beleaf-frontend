@@ -1,0 +1,42 @@
+<div
+  class="border border-light p-2 mb-4 "
+  [ngStyle]="{ background: '#fcfcfc' }"
+>
+  <span *ngIf="product.discount > 0" class="off-discount bg-warning text-white"
+    >-{{ product?.discountFormated }}</span
+  >
+  <div
+    class="thumb"
+    [ngStyle]="{
+      width: '100%',
+      height: '200px',
+      backgroundImage: 'url( ' + image + ')',
+      backgroundSize: 'cover',
+      backgroundPosition: center,
+      backgroundRepeat: 'no-repeat'
+    }"
+  ></div>
+  <p class="price mt-3">
+    <span>
+      <em *ngIf="product.discount > 0" class="old-price mr-2">
+        <span>{{ product?.price | currency: "BRL" }}</span></em
+      >
+      {{ getPriceOrWithDiscount() | currency: "BRL" }}</span
+    >
+  </p>
+  <h4>{{ product?.title }}</h4>
+  <p>
+    {{ product?.description }}
+  </p>
+  <a
+    [routerLink]="['/product/', product.id]"
+    class="btn btn-block btn-light text-danger"
+    >Mais Informações</a
+  >
+  <a *ngIf="enableDelete"
+    class="bt-delete btn btn-danger btn-sm text-white"
+    href="javascript:void(0)"
+    (click)="onDelete()"
+    >Apagar</a
+  >
+</div>

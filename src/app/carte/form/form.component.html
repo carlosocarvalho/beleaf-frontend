@@ -1,0 +1,134 @@
+<section class="section-gap" id="blog">
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-10">
+        <div class="title mb-4">
+          <h3 class="mb-10">Minha Marmita</h3>
+        </div>
+      </div>
+
+      <div class="col-md-10 border-3  pb-3 pt-3 border-light">
+        <form [formGroup]="productFormGroup" (ngSubmit)="save()">
+          <div class="row">
+            <div class="form-group col-md-12">
+              <label>Titulo </label>
+              <input
+                type="text"
+                placeholder="Digite o titulo"
+                class="form-control"
+                formControlName="title"
+                [ngClass]="{ 'is-invalid': submitted && in.title.errors }"
+              />
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-3">
+                        <label>Valor </label>
+                        <input
+                        currencyMask
+                        min="0.01"
+                          type="currency"
+                          
+                          placeholder="Digite o valor"
+                          class="form-control"
+                          formControlName="price"
+                          [ngClass]="{ 'is-invalid': submitted && in.price.errors }"
+                        />
+            </div>
+            <div class="form-group col-md-2">
+              <label>Estoque </label>
+              <input
+                type="number"
+                min="0"
+                placeholder="Digite o titulo"
+                class="form-control"
+                formControlName="stock"
+                [ngClass]="{ 'is-invalid': submitted && in.stock.errors }"
+              />
+            </div>
+            <div class="form-group col-md-2">
+              <label>Desconto %</label>
+              <input
+                type="number"
+                min="0"
+                placeholder="Desconto"
+                class="form-control"
+                formControlName="discount"
+                [ngClass]="{ 'is-invalid': submitted && in.discount.errors }"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-12">
+              <label
+                >Resumo
+                <small class="text-danger"
+                  >(Digite uma breve descrição)</small
+                ></label
+              >
+              <textarea
+                rows="2"
+                maxlength="200"
+                placeholder="Descrição"
+                class="form-control"
+                formControlName="description"
+                [ngClass]="{ 'is-invalid': submitted && in.description.errors }"
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-md-4">
+              <beleaf-file-upload
+                formControlName="image"
+                [progress]="progress"
+                [hasError]="fileOnError"
+              ></beleaf-file-upload>
+              
+            </div>
+            <div class="form-group col-md-8">
+                    <span
+                    class="text-danger"
+                    *ngIf="in.image.errors && in.image.errors.requiredFileType"
+                  >
+                    Adicione um arquivo válido por favor (png|jpeg|jpg)
+                  </span>
+                  <span
+                    class="text-danger"
+                    *ngIf="in.image.errors && in.image.errors.sizeFileValidator"
+                  >
+                    Por favor adicione um arquivo menor ou igual {{fileSizeUpload}}
+                  </span>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-md-12">
+              <label>Ingredientes </label>
+              <textarea
+                rows="3"
+                placeholder="Descreva os ingredientes"
+                class="form-control"
+                formControlName="stuff"
+                [ngClass]="{ 'is-invalid': submitted && in.stuff.errors }"
+              ></textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <button [disabled]="inLoading" class="btn btn-primary">
+              Salvar dados
+            </button>
+           
+            &nbsp;
+            <span *ngIf="inLoading" class="ml-5"
+              >Aguarde estamos validando os dados
+              <img src="/assets/img/elipses.svg" />
+            </span>
+          </div>
+          <div class="form-group"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

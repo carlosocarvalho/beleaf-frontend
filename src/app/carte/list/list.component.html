@@ -1,0 +1,43 @@
+<section class="blog-area section-gap" id="blog">
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="menu-content pb-70 col-lg-8">
+        <div class="title text-center">
+          <h1 class="mb-10">Oi, que bom vê-lo aqui</h1>
+          <p>
+            O nosso cardápio é muito especial, porque foi pensado com carinho e
+            com qualidade em todos os nossos produtos. <br />
+            Esperamos que goste. :)
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row d-flex align-items-center" [ngStyle]="{'height': '100%'}">
+      <div *ngIf="loading" class="col-md-12 text-center">
+        <h5>Carregando os dados <img src="/assets/img/elipses.svg" /></h5>
+      </div>
+      <div *ngIf="loaded && data.totalItems === 0" class="col-md-12 text-center">
+          <h5> Ainda não temos nenhuma marmita, mas assim quen criarmos elas aparecerão aqui. </h5>
+        </div>
+        
+      <div class="col-lg-3 col-md-6 single-blog" *ngFor="let item of data.items">
+        <beleaf-product [enableDelete]="isAuthenticated" [product]="item"></beleaf-product>
+      </div>
+      
+    </div>
+    <div class="row d-flex">
+        <div class="col-md-12 text-right">
+            <beleaf-pagination
+            [count]="totalItems"
+            [page]="page"
+            [perPage]="limit"
+            [pagesToShow]="3"
+            (goPrev)="prevPage()"
+            (goNext)="nextPage()"
+            (goPage)="goToPage($event)">
+          </beleaf-pagination>
+        </div>
+        
+    </div>
+  </div>
+</section>

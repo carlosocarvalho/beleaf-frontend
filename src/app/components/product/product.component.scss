@@ -1,0 +1,43 @@
+.bt-delete{
+    position: absolute;
+    top: 0px;
+    right: 10px;
+}
+
+.off-discount{
+    
+   
+    position: absolute;
+    display: inline-block;
+    padding: 5px 15px;
+    top:0px;
+    left: 15px;
+}
+
+.price{
+    padding: 0px !important;
+    background-color: #000;
+	color: #fff;
+	font-weight: 100;
+	//padding: 2px 15px;
+	
+    text-align: center;
+    .old-price{
+        font-size: 11px;
+        > span{
+            text-decoration: line-through;
+        }
+        
+        &::before{
+            content: 'De '
+        }
+        &::after{
+            content: ' Por - '
+        }
+    }
+    
+    > span{
+        display: inline-block;
+        padding: 5px 15px;
+    }
+}

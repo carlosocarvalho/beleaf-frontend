@@ -1,0 +1,49 @@
+<section class="section-gap" id="blog">
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-6 border-3  pb-3 pt-3 border-light">
+        <div class="title mb-4">
+          <h3 class="mb-10">Login</h3>
+        </div>
+        <form (ngSubmit)="login()" [formGroup]="loginFormGroup">
+          
+          <div class="form-group">
+            <label for="">Login</label>
+            <input
+              type="text"
+              placeholder="Digite seu usuario"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && in.username.errors }"
+              formControlName="username"
+              
+            />
+          </div>
+          <div class="form-group">
+            <label for="">Senha</label>
+            <input
+              type="password"
+              placeholder="Digite sua senha"
+              class="form-control"
+              formControlName="password"
+              [ngClass]="{ 'is-invalid': submitted && in.password.errors }"
+            />
+          </div>
+
+          <div class="form-group">
+            <button [disabled]="inLoading" class="btn btn-primary">Acessar</button> &nbsp;
+            <a class="link" [routerLink]="['/users/register']"
+              >Ainda não tenho conta</a
+            >
+            <span class="ml-5" *ngIf="inLoading">Aguarde estamos validando
+
+                <img src="/assets/img/elipses.svg" />
+              </span>
+          </div>
+          <div class="form-group">
+              
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

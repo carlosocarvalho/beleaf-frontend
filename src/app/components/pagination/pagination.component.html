@@ -1,0 +1,19 @@
+<div class="pagination" *ngIf="count > 0">
+  <span>{{ getMin() }} de {{ getMax() }} de {{ count }}&nbsp;|&nbsp;</span>
+  <strong>{{ totalPages() }} páginas</strong>&nbsp;&nbsp;
+  <div class="itens-link">
+    <button (click)="onPrev()" [disabled]="page === 1 || loading">
+      Anterior
+    </button>
+    <button
+      *ngFor="let pageNum of getPages()"
+      [disabled]="page === pageNum"
+      (click)="onPage(pageNum)"
+    >
+      {{ pageNum }}
+    </button>
+    <button (click)="onNext()" [disabled]="lastPage() || loading || totalPages() === 1">
+      Próxima
+    </button>
+  </div>
+</div>
