@@ -30,12 +30,12 @@ export class RegisterComponent implements OnInit {
 
   formInitialize() {
     this.registerFormGroup = this.builder.group({
-      username: [`jonas`, Validators.required],
-      password: ['123456', [Validators.required, Validators.minLength(6)]],
-      fullName: ['Carlos Carvalho', Validators.required],
-      email: ['cjc@modalnetworks.com', Validators.required],
+      username: [null, Validators.required],
+      password: [null, [Validators.required, Validators.minLength(6)]],
+      fullName: [null, Validators.required],
+      email: [null, Validators.required],
       birthDay: [new Date(), Validators.required],
-      confirmPassword: ['123456', Validators.required],
+      confirmPassword: [null, Validators.required],
     },
       {
         validator: ConfirmPassword('password', 'confirmPassword')
