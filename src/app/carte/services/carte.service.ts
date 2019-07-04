@@ -30,13 +30,11 @@ export class CarteService {
   public find(id?: string) {
     return this.http.get(`${environment.api}products${id ? '/' + id : ''}`);
   }
-  public pagination(currentPage?: number, setLimit?: number): Observable<Pagination> {
+  public pagination(currentPage?: number, setLimit?: number) {
     const page = currentPage || 1
     const limit = setLimit || 5
     return this.http
-      .get(`${environment.api}products`, {
-        params: { page, limit }
-      })//.map(data => new Pagination(data))
+      .get(`${environment.api}products`, { params: { page: String(page), limit: String(limit) } })
   }
   create(data) {
     const f = toFormData(data)
