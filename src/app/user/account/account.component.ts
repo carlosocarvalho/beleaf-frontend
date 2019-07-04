@@ -9,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountComponent implements OnInit {
   profileFormGroup: FormGroup
+  submitted = false
+  inLoading = false
   constructor(
     private readonly builder: FormBuilder,
     private readonly providerAuth: AuthService
@@ -36,6 +38,10 @@ export class AccountComponent implements OnInit {
 
   get in() {
     return this.profileFormGroup.controls
+  }
+
+  save() {
+
   }
 
 }
