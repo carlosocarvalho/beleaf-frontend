@@ -23,7 +23,7 @@
     "@angular/router": "~8.0.3",
     "@ngx-pwa/local-storage": "^8.0.2",
     "bootstrap": "^4.3.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "ng2-currency-mask": "^5.3.1",
     "popper.js": "^1.14.7",
     "rxjs": "~6.4.0",
